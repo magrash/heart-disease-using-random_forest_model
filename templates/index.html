@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered disease prediction using Random Forest machine learning model. Upload your CSV data and get instant predictions.">
+    <title>Disease Prediction AI | Upload & Analyze</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="icon-wrapper">
+                🧬
+            </div>
+            <h1>Disease Prediction AI</h1>
+            <p class="subtitle">
+                Upload your patient data in CSV format and let our Random Forest model analyze and predict potential diagnoses with high accuracy.
+            </p>
+            
+            <form action="/predict" method="post" enctype="multipart/form-data" id="uploadForm">
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" name="file" id="fileInput" accept=".csv" required>
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-text">
+                        <strong>Click to upload</strong> or drag and drop<br>
+                        CSV files only
+                    </p>
+                    <p class="file-name" id="fileName"></p>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    🚀 Analyze & Predict
+                </button>
+            </form>
+            
+            <p class="footer-text">
+                Powered by Random Forest Machine Learning
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileName.textContent = '✓ ' + this.files[0].name;
+                fileName.classList.add('active');
+            }
+        });
+
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                fileName.textContent = '✓ ' + e.dataTransfer.files[0].name;
+                fileName.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
