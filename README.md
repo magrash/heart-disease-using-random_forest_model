@@ -6,9 +6,13 @@ An AI-powered disease prediction web application built with Flask and scikit-lea
 ![Flask](https://img.shields.io/badge/Flask-2.0+-green?logo=flask)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange?logo=scikit-learn)
 
-## 📸 Screenshot
+## 📸 Screenshots
 
+### Upload Interface
 ![Disease Prediction AI Interface](static/images/screenshot.png)
+
+### Results Page
+![Analysis Complete - 97.62% Accuracy](static/images/result_screenshot.png)
 
 ## ✨ Features
 
