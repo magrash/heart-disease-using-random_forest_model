@@ -6,6 +6,10 @@ An AI-powered disease prediction web application built with Flask and scikit-lea
 ![Flask](https://img.shields.io/badge/Flask-2.0+-green?logo=flask)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange?logo=scikit-learn)
 
+## 📸 Screenshot
+
+![Disease Prediction AI Interface](static/images/screenshot.png)
+
 ## ✨ Features
 
 - **Machine Learning Prediction**: Uses a trained Random Forest model for disease classification
